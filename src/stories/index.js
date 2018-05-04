@@ -8,10 +8,11 @@ import { Button, Welcome } from '@storybook/react/demo';
 
 import Helloworld from '../components/Helloworld';
 import Codemirror from '../components/codeeditor/Codemirror';
+import Controlpanel from '../components/controlpanel/Controlpanel';
 import Materialsearch from '../components/Materialsearch';
 
 import {muiTheme} from 'storybook-addon-material-ui';
-import { withKnobs, text, boolean, number } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, number, array } from '@storybook/addon-knobs/react';
 
 import centered from '@storybook/addon-centered';
 
@@ -54,15 +55,24 @@ storiesOf('HelloWorld', module)
 
 var testCode = "class TestInfinity\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\n";
 
-storiesOf('CodeMirror', module)
+storiesOf('CodeEditor', module)
   // .addDecorator(muiTheme())
   .addDecorator(withKnobs)
   .addDecorator(Bordered)
-  .add('Editor1', () => <Codemirror 
+  .add('codemirror', () => <Codemirror 
                           code={testCode} 
                           completedLines={[25]} 
                           torunLines={[28]} 
                           activeLine={number("Active Line", 27)} 
                           lineClicked={action('lineGutterClicked')} 
                           symbolClicked={action('symbolClicked')} 
+                          />);
+
+storiesOf('ControlPanel', module)
+  .addDecorator(muiTheme())
+  .addDecorator(withKnobs)
+  .addDecorator(Bordered)
+  .add('first', () => <Controlpanel 
+                          nextStatementClicked={action('nextStatement')} 
+                          stepIntoClicked={action('stepInto')} 
                           />)

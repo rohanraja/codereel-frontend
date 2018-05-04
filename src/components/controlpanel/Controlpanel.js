@@ -1,0 +1,60 @@
+import React, { Component} from 'react';
+import Paper from 'material-ui/Paper';
+
+import RaisedButton from 'material-ui/RaisedButton';
+import {fullWhite} from 'material-ui/styles/colors';
+import FontIcon from 'material-ui/FontIcon';
+
+class Controlpanel extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  onStep()
+  {
+    this.props.nextStatementClicked();
+
+  }
+
+  onNext()
+  {
+    this.props.stepIntoClicked();
+  }
+
+  render() {
+    const style = {
+      margin: 20,
+      textAlign: 'center',
+      display: 'inline-block',
+    };
+
+    const butStyle = {
+      margin: 10,
+    };
+
+    return (
+      <div>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+      <Paper style={style} zDepth={1} >
+      <RaisedButton
+        primary={true}
+        icon={<i class="material-icons">redo</i>}
+        style={butStyle}
+        onClick={this.onStep.bind(this)}
+      />
+      <RaisedButton
+        primary={true}
+        icon={<i class="material-icons">navigate_next</i>}
+        style={butStyle}
+        onClick={this.onNext.bind(this)}
+      />
+
+      </Paper>
+      </div>
+    );
+  }
+}
+
+export default Controlpanel;

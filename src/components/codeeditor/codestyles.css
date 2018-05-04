@@ -1,12 +1,12 @@
 .active-codeline
 {
-  background-color: yellow;
+  background-color: #a1a1a1;
 }
 .completed-codeline
 {
-  background-color: gray;
+  background-color: #c2c2c2;
 }
 .torun-codeline
 {
-  background-color: #c2c2c2;
+  background-color: #f2f2f2;
 }
