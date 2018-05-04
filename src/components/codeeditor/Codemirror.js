@@ -16,10 +16,25 @@ class Codemirror extends Component {
 
   }
 
-  markLine(cm, lineNo)
+  markLineAsActive(cm, lineNo)
+  {
+    this.markLine(cm, lineNo, "active-codeline");
+  }
+
+  markLineAsCompleted(cm, lineNo)
+  {
+    this.markLine(cm, lineNo, "completed-codeline");
+  }
+
+  markLineAsTorun(cm, lineNo)
+  {
+    this.markLine(cm, lineNo, "torun-codeline");
+  }
+
+  markLine(cm, lineNo, className)
   {
 
-    cm.markText({line: lineNo - 1, ch: 0}, {line: lineNo , ch: 0}, {className: "styled-background"});
+    cm.markText({line: lineNo, ch: 0}, {line: lineNo+1 , ch: 0}, {className: className});
   }
 
   clearAllMarks(cm)
@@ -28,7 +43,6 @@ class Codemirror extends Component {
     marks.forEach(function (value) {
       value.clear();
     });
-
   }
 
   onclick(e)
@@ -36,9 +50,21 @@ class Codemirror extends Component {
     var inst = this.cm.getCodeMirrorInstance();
     console.log(inst);
     var cm = this.cm.getCodeMirror();
+    this.cm2 = cm;
 
     this.clearAllMarks(cm);
-    this.markLine(cm, this.props.activeLine);
+    this.markLineAsActive(cm, this.props.activeLine);
+
+    var cb = this.markLineAsCompleted.bind(this);
+    this.props.completedLines.forEach(function (value) {
+      cb(cm, value);
+    });
+
+    var cb2 = this.markLineAsTorun.bind(this);
+    this.props.torunLines.forEach(function (value) {
+      cb2(cm, value);
+    });
+
     this.jumpToLine(cm ,this.props.activeLine);
 
     window.cm = cm;
@@ -47,6 +73,8 @@ class Codemirror extends Component {
   componentDidMount()
   {
     this.onclick(null);
+    this.hookGutterLineNoClicked(this.cm2);
+    this.hookWordHighlightEvent(this.cm2);
   }
 
   componentDidUpdate(prevProps, prevState, snapshot)
@@ -60,12 +88,40 @@ class Codemirror extends Component {
     editor.scrollTo(null, t - middleHeight - 5); 
   } 
 
+  hookWordHighlightEvent(editor)
+  {
+    var callBack = this.props.symbolClicked ;
+
+    editor.on('cursorActivity', function() {
+        var A1 = editor.getCursor().line;
+        var A2 = editor.getCursor().ch;
+
+        var B1 = editor.findWordAt({line: A1, ch: A2}).anchor.ch;
+        var B2 = editor.findWordAt({line: A1, ch: A2}).head.ch;
+
+        var word = editor.getRange({line: A1,ch: B1}, {line: A1,ch: B2}) ;
+        // console.log(editor.getRange({line: A1,ch: B1}, {line: A1,ch: B2})); 
+        callBack(word, A1, A2);
+    });
+  }
+
+  hookGutterLineNoClicked(editor)
+  {
+    var callBack = this.props.lineClicked ;
+
+    editor.on("gutterClick", function(inst, lineno) { 
+      // console.log(lineno); 
+      callBack(lineno);
+    });
+  }
+
   render() {
 
-    var code = "class Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\n";
+    var code = this.props.code;
     var options = {
 			lineNumbers: true,
-      mode: 'ruby'
+      mode: 'ruby',
+      firstLineNumber: 0
 		};
 
     return (
@@ -73,7 +129,6 @@ class Codemirror extends Component {
         
       <CodeMirror ref={(c: any) => this.cm = c} value={code} options={options} />
 
-      <a onClick={this.onclick.bind(this)}>Mark</a>
       </div>
     );
   }

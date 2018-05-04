@@ -30,6 +30,18 @@ import centered from '@storybook/addon-centered';
 //   ));
 //
 //   
+//
+//
+
+const styles = {
+  border: "1px solid"
+};
+const Bordered = (storyFn) => (
+  <div style={styles}>
+    { storyFn() }
+  </div>
+);
+
 
 
 storiesOf('HelloWorld', module)
@@ -38,7 +50,19 @@ storiesOf('HelloWorld', module)
   .add('material_ui_test', () => <Helloworld contnt={text("Button Text", "TRY ME")} />)
   .add('search', () => <Materialsearch />);
 
+
+
+var testCode = "class TestInfinity\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\nclass Test\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\tend\nend\n";
+
 storiesOf('CodeMirror', module)
   // .addDecorator(muiTheme())
   .addDecorator(withKnobs)
-  .add('Editor1', () => <Codemirror activeLine={number("Active Line", 30)} />)
+  .addDecorator(Bordered)
+  .add('Editor1', () => <Codemirror 
+                          code={testCode} 
+                          completedLines={[25]} 
+                          torunLines={[28]} 
+                          activeLine={number("Active Line", 27)} 
+                          lineClicked={action('lineGutterClicked')} 
+                          symbolClicked={action('symbolClicked')} 
+                          />)
