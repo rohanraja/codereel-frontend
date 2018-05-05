@@ -13,8 +13,14 @@ class Codemirror extends Component {
   constructor(props) {
     super(props);
     this.cm = null;
-
   }
+
+  static defaultProps = {
+    code: "",
+    activeLine: 0,
+    completedLines: [],
+    torunLines: []
+  };
 
   markLineAsActive(cm, lineNo)
   {
