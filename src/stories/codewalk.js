@@ -9,7 +9,9 @@ import Helloworld from '../components/Helloworld';
 import Codemirror from '../components/codeeditor/Codemirror';
 import Controlpanel from '../components/controlpanel/Controlpanel';
 
-import { Provider } from './Provder';
+
+import Provider from './Provider';
+import WithStore from '../store/WithStore';
 
 import {muiTheme} from 'storybook-addon-material-ui';
 import { withKnobs, text, boolean, number, array } from '@storybook/addon-knobs/react';
@@ -31,5 +33,14 @@ storiesOf('Code Line Incrementor', module)
   .addDecorator(muiTheme())
   .addDecorator(withKnobs)
   .addDecorator(story => <Provider story={story()} />)
-  .add('withRedux', () => <Controlpanel 
-                          />)
+  .add('withRedux', () => 
+                
+    <WithStore>
+    {(state, dispatch) => 
+
+    <Codemirror 
+                            code={state.code}
+                          />
+    }
+    </WithStore>
+  )

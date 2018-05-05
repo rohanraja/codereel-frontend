@@ -1,9 +1,10 @@
 import React from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
-import { browserHistory } from 'react-router';
-import configureStore from '../store/configureStore';
+import {configureStore} from '../store';
+import initialState from '../store/initialState'
 
-const store = configureStore(browserHistory, {});
+
+const store = configureStore(initialState);
 
 export default function Provider({ story }) {
   return (
