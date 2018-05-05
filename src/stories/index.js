@@ -35,7 +35,8 @@ import centered from '@storybook/addon-centered';
 //
 
 const styles = {
-  border: "1px solid"
+  border: "1px solid",
+  // width: 500
 };
 const Bordered = (storyFn) => (
   <div style={styles}>
@@ -75,4 +76,5 @@ storiesOf('ControlPanel', module)
   .add('first', () => <Controlpanel 
                           nextStatementClicked={action('nextStatement')} 
                           stepIntoClicked={action('stepInto')} 
+                          prevStatementClicked={action('prevStatement')} 
                           />)

@@ -11,15 +11,20 @@ class Controlpanel extends Component {
     super(props);
   }
 
-  onStep()
+  onNext()
   {
     this.props.nextStatementClicked();
 
   }
 
-  onNext()
+  onStep()
   {
     this.props.stepIntoClicked();
+  }
+
+  onPrev()
+  {
+    this.props.prevStatementClicked();
   }
 
   render() {
@@ -38,6 +43,12 @@ class Controlpanel extends Component {
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 
       <Paper style={style} zDepth={1} >
+      <RaisedButton
+        primary={true}
+        icon={<i class="material-icons">navigate_before</i>}
+        style={butStyle}
+        onClick={this.onPrev.bind(this)}
+      />
       <RaisedButton
         primary={true}
         icon={<i class="material-icons">redo</i>}

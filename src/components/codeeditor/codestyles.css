@@ -1,6 +1,6 @@
 .active-codeline
 {
-  background-color: #a1a1a1;
+  background-color: yellow;
 }
 .completed-codeline
 {
@@ -8,5 +8,5 @@
 }
 .torun-codeline
 {
-  background-color: #f2f2f2;
+  background-color: #e2e2c2;
 }

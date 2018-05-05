@@ -126,8 +126,12 @@ class Codemirror extends Component {
 
     return (
       <div>
+
         
-      <CodeMirror ref={(c: any) => this.cm = c} value={code} options={options} />
+      <CodeMirror 
+      ref={(c: any) => this.cm = c} value={code} options={options} 
+      
+      />
 
       </div>
     );
