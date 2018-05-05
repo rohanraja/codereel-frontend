@@ -9,6 +9,10 @@ import { Button, Welcome } from '@storybook/react/demo';
 import Helloworld from '../components/Helloworld';
 import Codemirror from '../components/codeeditor/Codemirror';
 import Controlpanel from '../components/controlpanel/Controlpanel';
+import VariablesInspector from '../components/VariablesInspector/VariablesInspector';
+import ObjectInspector from '../components/VariablesInspector/ObjectInspector';
+import ScopeInspector from '../components/VariablesInspector/ScopeInspector';
+
 import Materialsearch from '../components/Materialsearch';
 
 import {muiTheme} from 'storybook-addon-material-ui';
@@ -35,11 +39,10 @@ import centered from '@storybook/addon-centered';
 //
 
 const styles = {
-  border: "1px solid",
-  // width: 500
+  border: "1px solid"
 };
 const Bordered = (storyFn) => (
-  <div style={styles}>
+  <div style={styles} className="bordered">
     { storyFn() }
   </div>
 );
@@ -58,8 +61,8 @@ var testCode = "class TestInfinity\n\tbelongs_to: :rohan\n\n\tdef testMethod\n\t
 
 storiesOf('CodeEditor', module)
   // .addDecorator(muiTheme())
-  .addDecorator(withKnobs)
   .addDecorator(Bordered)
+  .addDecorator(withKnobs)
   .add('codemirror', () => <Codemirror 
                           code={testCode} 
                           completedLines={[25]} 
@@ -70,11 +73,60 @@ storiesOf('CodeEditor', module)
                           />);
 
 storiesOf('ControlPanel', module)
+  .addDecorator(Bordered)
   .addDecorator(muiTheme())
   .addDecorator(withKnobs)
-  .addDecorator(Bordered)
-  .add('first', () => <Controlpanel 
+  .add('panelWithButtons', () => <Controlpanel 
                           nextStatementClicked={action('nextStatement')} 
                           stepIntoClicked={action('stepInto')} 
                           prevStatementClicked={action('prevStatement')} 
+                          />)
+
+const testObjectData = {
+  name: "Rohan Raja",
+  age: 25,
+  cities: ["Jaipur", "Kharagpur", "Hyderabad"],
+  jobs: {
+    "DDU" : "Web Developer",
+    "BYU" : "Research Assistant"
+  }
+};
+
+const testScopeVar = {
+    "varName": "userInfo",
+    "varType": "object",
+    "varData": testObjectData
+};
+
+const testScopeVars = [
+  testScopeVar
+]
+
+var testVarsData = {
+  "local": {
+    "i" : 4
+  },
+  "attributes": {
+    "userInfo" : testObjectData
+  },
+  "global": {
+  }
+
+}
+
+storiesOf('Variables Inspector', module)
+  .addDecorator(Bordered)
+  .addDecorator(muiTheme())
+  .addDecorator(withKnobs)
+  .add('Main Inspector', () => <VariablesInspector 
+                              varsData = {testVarsData}
+                          />)
+  .add('Main Inspector - Var Change', () => <VariablesInspector 
+                              varsData = {{"local": {i: number("iVal2" , 44)}}}
+                          />)
+  .add('Object Inspector', () => <ObjectInspector 
+                              objectData = {testObjectData}
+                          />)
+  .add('Scope Inspector', () => <ScopeInspector 
+                              scopeVars = {testScopeVars}
                           />)
