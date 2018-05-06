@@ -1,4 +1,5 @@
 
 export const INCREMENT_ACTIVE_LINE = 'INCREMENT_ACTIVE_LINE'
 export const DECREMENT_ACTIVE_LINE = 'DECREMENT_ACTIVE_LINE'
+// -- newActionType_hook --
 
