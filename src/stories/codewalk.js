@@ -8,6 +8,7 @@ import { linkTo } from '@storybook/addon-links';
 import Helloworld from '../components/Helloworld';
 import Codemirror from '../components/codeeditor/Codemirror';
 import Controlpanel from '../components/controlpanel/Controlpanel';
+import {nextCalled} from '../store/CodeControlPanel/actions';
 
 
 import Provider from './Provider';
@@ -38,9 +39,13 @@ storiesOf('Code Line Incrementor', module)
     <WithStore>
     {(state, dispatch) => 
 
-    <Codemirror 
-                            code={state.code}
-                          />
+      <div>
+
+      <Controlpanel nextStatementClicked={() => dispatch(nextCalled())} />
+
+    <Codemirror code={state.code} activeLine={state.activeLineNo} />
+
+      </div>
     }
     </WithStore>
   )

@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
-export const rootReducer = combineReducers({
+import { lineIncReducer } from './CodeControlPanel/reducers'
 
+export const rootReducer = combineReducers({
+  activeLineNo: lineIncReducer
 })
 
