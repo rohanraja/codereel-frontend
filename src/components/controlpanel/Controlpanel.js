@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {fullWhite} from 'material-ui/styles/colors';
 import FontIcon from 'material-ui/FontIcon';
 
-class Controlpanel extends Component {
+export class Controlpanel extends Component {
 
   constructor(props) {
     super(props);
@@ -68,4 +68,23 @@ class Controlpanel extends Component {
   }
 }
 
-export default Controlpanel;
+
+import {connect} from 'react-redux'
+import {nextCalled, prevCalled} from '../../store/CodeControlPanel/actions';
+
+const mapDispatchToProps = dispatch => {
+  return {
+    nextStatementClicked : () => dispatch(nextCalled()),
+    prevStatementClicked : () => dispatch(prevCalled())
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Controlpanel);

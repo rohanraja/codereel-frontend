@@ -8,7 +8,7 @@ import './codestyles.css'
 
 
 
-class Codemirror extends Component {
+export class Codemirror extends Component {
 
   constructor(props) {
     super(props);
@@ -144,4 +144,24 @@ class Codemirror extends Component {
   }
 }
 
-export default Codemirror;
+
+import {connect} from 'react-redux'
+import {nextCalled, prevCalled} from '../../store/CodeControlPanel/actions';
+
+const mapStateToProps = state => {
+  return {
+    code : state.code,
+    activeLine: state.activeLineNo
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Codemirror);
+

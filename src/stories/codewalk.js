@@ -6,8 +6,8 @@ import { linkTo } from '@storybook/addon-links';
 
 
 import Helloworld from '../components/Helloworld';
-import Codemirror from '../components/codeeditor/Codemirror';
-import Controlpanel from '../components/controlpanel/Controlpanel';
+import ConnectedCodemirror from '../components/codeeditor/Codemirror';
+import ConnectedControlpanel from '../components/controlpanel/Controlpanel';
 import {nextCalled, prevCalled} from '../store/CodeControlPanel/actions';
 
 
@@ -35,21 +35,8 @@ storiesOf('Code Line Incrementor', module)
   .addDecorator(withKnobs)
   .addDecorator(story => <Provider story={story()} />)
   .add('withRedux', () => 
-                
-    <WithStore>
-    {(state, dispatch) => 
-
-      <div>
-
-      <Controlpanel 
-        nextStatementClicked={() => dispatch(nextCalled())} 
-        prevStatementClicked={() => dispatch(prevCalled())} 
-      
-      />
-
-    <Codemirror code={state.code} activeLine={state.activeLineNo} />
-
-      </div>
-    }
-    </WithStore>
+    <div>
+    <ConnectedControlpanel />
+    <ConnectedCodemirror />
+    </div>
   )
