@@ -70,7 +70,7 @@ export class Controlpanel extends Component {
 
 
 import {connect} from 'react-redux'
-import {nextCalled, prevCalled} from '../../store/CodeControlPanel/actions';
+import {nextCalled, prevCalled} from './actions';
 
 const mapDispatchToProps = dispatch => {
   return {

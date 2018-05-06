@@ -146,7 +146,6 @@ export class Codemirror extends Component {
 
 
 import {connect} from 'react-redux'
-import {nextCalled, prevCalled} from '../../store/CodeControlPanel/actions';
 
 const mapStateToProps = state => {
   return {

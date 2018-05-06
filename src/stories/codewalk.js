@@ -8,7 +8,6 @@ import { linkTo } from '@storybook/addon-links';
 import Helloworld from '../components/Helloworld';
 import ConnectedCodemirror from '../components/codeeditor/Codemirror';
 import ConnectedControlpanel from '../components/controlpanel/Controlpanel';
-import {nextCalled, prevCalled} from '../store/CodeControlPanel/actions';
 
 
 import Provider from './Provider';
