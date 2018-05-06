@@ -5,3 +5,9 @@ export function nextCalled() {
     type: types.INCREMENT_ACTIVE_LINE
   }
 }
+
+export function prevCalled() {
+  return {
+    type: types.DECREMENT_ACTIVE_LINE
+  }
+}

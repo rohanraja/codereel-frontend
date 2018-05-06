@@ -6,6 +6,9 @@ export function lineIncReducer(state = initialState.activeLineNo, action) {
     case types.INCREMENT_ACTIVE_LINE:
       return state+1;
     
+    case types.DECREMENT_ACTIVE_LINE:
+      return state-1;
+
     default:
       return state
   }
