@@ -4,19 +4,13 @@ import { storiesOf, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-
-import Helloworld from '../components/Helloworld';
-import ConnectedCodemirror from '../components/codeeditor/Codemirror';
-import ConnectedControlpanel from '../components/controlpanel/Controlpanel';
-import ConnectedCodeHeader from '../components/Code_header';
-
-
-import Provider from './Provider';
-import WithStore from '../store/WithStore';
-
 import {muiTheme} from 'storybook-addon-material-ui';
 import { withKnobs, text, boolean, number, array } from '@storybook/addon-knobs/react';
 
+import Provider from './Provider';
+
+import { Code_header } from '../components/Code_header' ;
+// -- import_hook --
 
 
 
@@ -29,15 +23,11 @@ const Bordered = (storyFn) => (
   </div>
 );
 
-storiesOf('Code Line Incrementor', module)
+storiesOf('Code_header', module)
   .addDecorator(Bordered)
   .addDecorator(muiTheme())
   .addDecorator(withKnobs)
   .addDecorator(story => <Provider story={story()} />)
-  .add('withRedux', () => 
-    <div>
-    <ConnectedControlpanel />
-    <ConnectedCodeHeader />
-    <ConnectedCodemirror />
-    </div>
+  .add('without_props', () => 
+    <Code_header />
   )
