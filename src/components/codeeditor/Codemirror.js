@@ -146,8 +146,8 @@ import {connect} from 'react-redux'
 
 const mapStateToProps = state => {
   return {
-    code : state.code,
-    activeLine: state.activeLineNo
+    code : state.activeFrame.code,
+    activeLine: state.activeFrame.lineNo
   }
 }
 

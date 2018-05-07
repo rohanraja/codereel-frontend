@@ -5,9 +5,7 @@ import { codeReducer } from '../components/Code_header/reducers'
 // -- import_hook -- 
 
 export const rootReducer = combineReducers({
-  activeLineNo: lineIncReducer,
-  activeFileName: Code_headerReducer,
-  code : codeReducer,
+  activeFrame: lineIncReducer,
   // -- reducerLine_hook -- 
 })
 

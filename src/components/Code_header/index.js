@@ -28,7 +28,7 @@ export class Code_header extends Component {
 
 function mapStateToProps(state) {
   return {
-    title: state.activeFileName
+    title: state.activeFrame.fileName
   };
 }
 
