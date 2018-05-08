@@ -11,10 +11,36 @@ export const rootReducer = combineReducers({
   // -- reducerLine_hook -- 
 })
 
-export function getFullActiveFrame(store)
+
+
+export function getCurrentFileRun(store)
 {
   const frame = store.activeFrame;
-  const codeFile = store.codeFiles[frame.fileName];
-  
-  return {...frame, code: codeFile.code}
+  const fRunIdx = frame.fileRunIdx;
+
+  return store.fileRuns[fRunIdx];
+}
+
+export function getCurrentLineSeqIdx(store)
+{
+  const frame = store.activeFrame;
+  return frame.lineSeqIdx;
+}
+
+
+export function getFullActiveFrame(store)
+{
+  const currentFileRun = getCurrentFileRun(store);
+  const lineIdx = getCurrentLineSeqIdx(store);
+  const codeFileName = currentFileRun.fileName;
+  const codeFile = store.codeFiles[codeFileName];
+  const lineNo = currentFileRun.lineSequence[lineIdx]
+
+  const fullFrame = {
+    fileName: codeFileName,
+    code: codeFile.code,
+    lineNo: lineNo
+  };
+
+  return fullFrame;
 }
