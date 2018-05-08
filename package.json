@@ -31,7 +31,9 @@
     "@storybook/react": "^3.4.3",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
+    "raw-loader": "^0.5.1",
     "redux-devtools-extension": "^2.13.2",
-    "storybook-addon-material-ui": "^0.8.2"
+    "storybook-addon-material-ui": "^0.8.2",
+    "webpack-cli": "^2.1.3"
   }
 }
