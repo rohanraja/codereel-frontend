@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux'
-import { activeFrameReducer } from '../components/controlpanel/reducers'
-import { Code_headerReducer } from '../components/Code_header/reducers'
-import { codeReducer } from '../components/Code_header/reducers'
-import { createSelector } from 'reselect'
+import { fileRunsReducer } from './reducers/fileRunsReducer'
+import { codeFilesReducer } from './reducers/codeFilesReducer'
+import { activeFrameReducer } from './reducers/activeFrameReducer'
 // -- import_hook -- 
 
 export const rootReducer = combineReducers({
-  activeFrame: activeFrameReducer,
-  codeFiles: codeReducer
+  fileRuns : fileRunsReducer,
+  codeFiles : codeFilesReducer,
+  activeFrame : activeFrameReducer,
   // -- reducerLine_hook -- 
 })
 
