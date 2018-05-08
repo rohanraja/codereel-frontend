@@ -1,11 +1,15 @@
 export default {
-  activeCode: "# code from global state\n#ONe more line\nYet another line\nthird line\nonemoreline\nadad aasd asd ad\nsasdasda adsa ads adas \nads asd ada dsa ",
-  activeLineNo: 2,
-  activeFileName: "<fileFromStore>",
-
   activeFrame: {
-    code: "#ONe more line\nYet another line\nthird line\nonemoreline\nadad aasd asd ad\nsasdasda adsa ads adas \nads asd ada dsa ",
+    code: `require_relative 'hook_helper' \nrequire_relative 'story' \nrequire_relative 'component_base' \nrequire_relative 'path_helpers' \nrequire_relative 'action_creator' \nrequire_relative 'component_gen' \nrequire_relative 'template_helpers' \nrequire_relative 'create_reducer' \nrequire 'tempfile' \n \nclass React < Thor \n  include Thor::Actions \n  include TemplateHelpers \n  include ComponentBase \n  include ComponentGen \n  include PathHelpers \n  include Story \n  include ActionCreator \n  include CreateReducer \n \n  source_root File.expand_path('templates', __dir__) \n \n  desc "Create React-Redux Component", "Define connected react component along with placeholders for actions, reducers and types" \n  def component(componentName) \n    component_main(componentName) \n  end \n \n  desc "Add Action Creator", "Generates an action creator method, imports that in component and connects it to react" \n  def actionCreator(componentName, actionCreatorName) \n    say "Creating #{actionCreatorName} method for #{componentName} component", :green \n    actionCreator_main(componentName, actionCreatorName) \n  end \n \n  desc "addStory", "Adds the component to the storybook for manual UI test" \n  def addStory(componentName) \n    say "Creating Without Props story for #{componentName} component", :green \n    addStory_main(componentName) \n  end \n \n  desc "createReducer ComponentName stateVarName", "Creates a reducer inside the component and for the state variable" \n  def reducer(componentName, reducerName) \n    say "Creating Reducer #{reducerName}", :green \n    createReducer_main(componentName, reducerName) \n  end \n \nprivate \n \nend`,
     lineNo: 3,
-    fileName: "<fileFromStore>",
+    fileName: "main.thor",
+  },
+
+  codeFiles: {
+
+    "main.thor" : {
+      code: `require_relative 'hook_helper' \nrequire_relative 'story' \nrequire_relative 'component_base' \nrequire_relative 'path_helpers' \nrequire_relative 'action_creator' \nrequire_relative 'component_gen' \nrequire_relative 'template_helpers' \nrequire_relative 'create_reducer' \nrequire 'tempfile' \n \nclass React < Thor \n  include Thor::Actions \n  include TemplateHelpers \n  include ComponentBase \n  include ComponentGen \n  include PathHelpers \n  include Story \n  include ActionCreator \n  include CreateReducer \n \n  source_root File.expand_path('templates', __dir__) \n \n  desc "Create React-Redux Component", "Define connected react component along with placeholders for actions, reducers and types" \n  def component(componentName) \n    component_main(componentName) \n  end \n \n  desc "Add Action Creator", "Generates an action creator method, imports that in component and connects it to react" \n  def actionCreator(componentName, actionCreatorName) \n    say "Creating #{actionCreatorName} method for #{componentName} component", :green \n    actionCreator_main(componentName, actionCreatorName) \n  end \n \n  desc "addStory", "Adds the component to the storybook for manual UI test" \n  def addStory(componentName) \n    say "Creating Without Props story for #{componentName} component", :green \n    addStory_main(componentName) \n  end \n \n  desc "createReducer ComponentName stateVarName", "Creates a reducer inside the component and for the state variable" \n  def reducer(componentName, reducerName) \n    say "Creating Reducer #{reducerName}", :green \n    createReducer_main(componentName, reducerName) \n  end \n \nprivate \n \nend`,
+    }
+
   }
 }

@@ -10,7 +10,7 @@ export function Code_headerReducer(state = initialState.activeFileName, action) 
   }
 }
 
-export function codeReducer(state = initialState.activeCode, action) {
+export function codeReducer(state = initialState.codeFiles, action) {
   switch (action.type) {
 
     default:
