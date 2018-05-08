@@ -2,7 +2,7 @@ import initialState from '../../store/initialState'
 import * as types from './types'
 // -- import_hook -- 
 
-export function lineIncReducer(state = initialState.activeFrame, action) {
+export function activeFrameReducer(state = initialState.activeFrame, action) {
   switch (action.type) {
     case types.INCREMENT_ACTIVE_LINE:
       return {...state , lineNo: state.lineNo + 1 };
