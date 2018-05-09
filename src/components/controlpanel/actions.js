@@ -4,19 +4,19 @@ export function nextCalled() {
 
   return function (dispatch, getState) {
     const state = getState();
+    // dispatch({
+    //   type: types.DEBUG_NEXT_CALLED
+    // });
 
-    const curRunIdx = state.activeFrame.fileRunIdx;
-    const lineIdx = state.activeFrame.lineSeqIdx;
-    if( lineIdx + 1 < state.activeFrame.maxLineSeqs[curRunIdx])
+    if(!lineSeqEndReached(state))
     {
       dispatch({
         type: types.INCREMENT_ACTIVE_LINE
       });
-
       return;
     }
 
-    if( curRunIdx + 1 >= state.activeFrame.maxFileRuns)
+    if(fileRunEndReached(state))
       return;
 
     dispatch({
@@ -26,13 +26,43 @@ export function nextCalled() {
   };
 }
 
+function lineSeqEndReached(state)
+{
+
+  const curRunIdx = state.activeFrame.fileRunIdx;
+  const lineIdx = state.activeFrame.lineSeqIdx;
+  const lineSeqLen = state.activeFrame.maxLineSeqs[curRunIdx];
+  return ( lineIdx + 1 >= lineSeqLen );
+}
+
+function fileRunEndReached(state)
+{
+  const curRunIdx = state.activeFrame.fileRunIdx;
+  return ( curRunIdx + 1 >= state.activeFrame.maxFileRuns ) ;
+}
+
+
+function isAtFileStartPosition(state)
+{
+  const lineIdx = state.activeFrame.lineSeqIdx;
+  return  (lineIdx -1  >= 0) ; 
+}
+
+function isAtFirstFileRun(state)
+{
+  const curRunIdx = state.activeFrame.fileRunIdx;
+  return  ( curRunIdx <= 0 );
+}
+
 export function prevCalled() {
   return function (dispatch, getState) {
     const state = getState();
 
-    const curRunIdx = state.activeFrame.fileRunIdx;
-    const lineIdx = state.activeFrame.lineSeqIdx;
-    if( lineIdx -1  >= 0 )
+    // dispatch({
+    //   type: types.DEBUG_PREV_CALLED
+    // });
+
+    if(isAtFileStartPosition(state))
     {
       dispatch({
         type: types.DECREMENT_ACTIVE_LINE
@@ -41,7 +71,7 @@ export function prevCalled() {
       return;
     }
 
-    if( curRunIdx  <= 0 )
+    if(isAtFirstFileRun(state))
       return;
 
     dispatch({
@@ -50,14 +80,6 @@ export function prevCalled() {
 
   };
 
-  return function (dispatch, getState) {
-    const state = getState();
-
-    dispatch({
-      type: types.DECREMENT_ACTIVE_LINE
-    });
-
-  };
 }
 
 // -- new_actionCreator_hook --

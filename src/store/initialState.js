@@ -3,7 +3,7 @@ export default {
     fileRunIdx: 0,
     lineSeqIdx: 0,
     maxFileRuns: 3,
-    maxLineSeqs: [3,5,1]
+    maxLineSeqs: [3,5,2]
   },
 
   codeFiles: {
@@ -27,7 +27,7 @@ export default {
     },
     {
       fileName: "main.thor",
-      lineSequence: [31]
+      lineSequence: [30, 31]
     },
   ],
 }
