@@ -134,7 +134,8 @@ export class Codemirror extends Component {
       <div>
       <CodeMirror 
       ref={(c: any) => this.cm = c} value={code} options={options} 
-      
+
+      key={code}
       />
       </div>
     );
