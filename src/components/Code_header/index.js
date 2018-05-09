@@ -26,9 +26,11 @@ export class Code_header extends Component {
   }
 }
 
+import {getFullActiveFrame} from '../../store/rootReducer'
 function mapStateToProps(state) {
+  var activeFrame = getFullActiveFrame(state)
   return {
-    title: state.activeFrame.fileName
+    title: activeFrame.fileName
   };
 }
 

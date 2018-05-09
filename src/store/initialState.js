@@ -2,6 +2,8 @@ export default {
   activeFrame: {
     fileRunIdx: 0,
     lineSeqIdx: 0,
+    maxFileRuns: 3,
+    maxLineSeqs: [3,5,1]
   },
 
   codeFiles: {
