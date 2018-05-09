@@ -1,0 +1,39 @@
+views:
+  - pages
+    - CodeWalkerPage.js
+
+  - layouts
+    - DebuggerLayout.js
+
+  - components
+    - CodeMirror.js
+    - CodeHeader.js
+    - ControlPanel.js
+
+state:
+  - store
+    - rootReducer.js
+    - index.js
+
+  - ducks
+    - codeWalkingFeature
+      - index.js
+      - operations.js
+      - actions.js
+      - reducers.js
+      - selectors.js
+      - types.js
+      - tests.js
+
+services:
+  - apiEndpoint.js
+
+stories:
+  - common
+    - withStore.js
+    - Provider.js
+
+  - codeWalker
+    - codeEditorStories.js
+    - codeHeaderStories.js
+    - withStore.js

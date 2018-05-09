@@ -2,6 +2,7 @@ export default {
   activeFrame: {
     fileRunIdx: 0,
     lineSeqIdx: 0,
+    varsDataIdx: 0,
     maxFileRuns: 3,
     maxLineSeqs: [3,5,2]
   },
@@ -19,7 +20,8 @@ export default {
   fileRuns: [
     {
       fileName: "main.thor",
-      lineSequence: [28,29,30]
+      lineSequence: [28,29,30],
+      frameVarsData: [1,1,2],
     },
     {
       fileName: "action_creator.rb",
@@ -30,4 +32,49 @@ export default {
       lineSequence: [30, 31]
     },
   ],
+
+  frameVarsDataDict: {
+
+    0 : {
+          type: "FULL_STATE",
+          data: {
+
+            "local": {
+              "i" : 4
+            },
+            "attributes": {
+              "userInfo" : "Test User"
+            },
+            "global": {
+            }
+          }
+
+        },
+    1 : {
+          type: "FULL_STATE",
+          data: {
+
+            "local": {
+              "i" : 99
+            },
+            "attributes": {
+              "userInfo" : "Changed User Info"
+            },
+            "global": {
+            }
+          }
+
+        },
+    2 : {
+          type: "DIFF",
+          data: {
+            "op": "replace", 
+            "path": "/local/i", 
+            "value": 155
+          },
+          baseId: 1 
+
+        },
+
+  }
 }

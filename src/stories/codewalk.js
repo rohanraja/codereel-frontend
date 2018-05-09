@@ -9,6 +9,7 @@ import Helloworld from '../components/Helloworld';
 import ConnectedCodemirror from '../components/codeeditor/Codemirror';
 import ConnectedControlpanel from '../components/controlpanel/Controlpanel';
 import ConnectedCodeHeader from '../components/Code_header';
+import VariablesInspector from '../components/VariablesInspector/VariablesInspector';
 
 
 import Provider from './Provider';
@@ -34,6 +35,16 @@ storiesOf('Code Line Incrementor', module)
   .addDecorator(muiTheme())
   .addDecorator(withKnobs)
   .addDecorator(story => <Provider story={story()} />)
+  .add('withInspector', () => 
+    <div>
+      <ConnectedControlpanel />
+      <ConnectedCodeHeader style={{"display": "flex", justifyContent: "space-between"}} />
+      <div >
+        <ConnectedCodemirror style={{width: "500px"}} />
+        <VariablesInspector style={{flexBasis: "1 | auto"}} />
+      </div>
+    </div>
+  )
   .add('withRedux', () => 
     <div>
     <ConnectedControlpanel />

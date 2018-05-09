@@ -3671,6 +3671,12 @@ fast-glob@^2.0.2:
     merge2 "^1.2.1"
     micromatch "^3.1.10"
 
+fast-json-patch@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/fast-json-patch/-/fast-json-patch-2.0.6.tgz#86fff8f8662391aa819722864d632e603e6ee605"
+  dependencies:
+    deep-equal "^1.0.1"
+
 fast-json-stable-stringify@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.0.0.tgz#d5142c0caee6b1189f87d3a76111064f86c8bbf2"
@@ -5483,6 +5489,10 @@ json-loader@^0.5.4, json-loader@^0.5.7:
 json-parse-better-errors@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
+
+json-patch@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/json-patch/-/json-patch-0.7.0.tgz#2598958ea67fa3660dae8ee684d35407b37f4b98"
 
 json-schema-traverse@^0.3.0:
   version "0.3.1"
