@@ -9,5 +9,5 @@ export function JsonPatcher(baseState, diffPatch)
   if (!(diffPatch instanceof Array))
     diffPatch = [diffPatch];
 
-  return jsonpatch.applyPatch(baseState, diffPatch).newDocument;
+  return jsonpatch.applyPatch(baseState, diffPatch, false, false).newDocument;
 }

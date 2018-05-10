@@ -9,6 +9,7 @@ export function configureStore(initialState) {
     initialState,
     composeWithDevTools(
       applyMiddleware(
+        require('redux-immutable-state-invariant').default(),
         thunk
       )
     )

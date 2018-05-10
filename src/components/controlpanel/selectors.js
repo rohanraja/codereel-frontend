@@ -57,7 +57,7 @@ export function getActiveFrameVarsDataId(state)
 
 function getFrameVarsDict(state)
 {
-  return state.frameVarsDataDict;
+  return state.frameVarsDataDict ;
 }
 export function getVarsDataFrameFromId(state, id)
 {
@@ -97,4 +97,11 @@ function applyPatchRecursive(curFrame, frameVarsDict)
   }
 
   return curFrame;
+}
+
+// Used by Variable Inspector component
+export function getActiveVarsData(state)
+{
+  const dataId = getActiveFrameVarsDataId(state);
+  return getVarsDataFrameFromId(state, dataId);
 }

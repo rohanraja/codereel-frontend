@@ -1,7 +1,8 @@
 import React, { Component} from 'react';
 import ObjectInspector from "./ObjectInspector";
+import { connect } from 'react-redux';
 
-class VariablesInspector extends Component {
+export class VariablesInspector extends Component {
 
   constructor(props) {
     super(props);
@@ -20,4 +21,24 @@ class VariablesInspector extends Component {
   }
 }
 
-export default VariablesInspector;
+
+import {getActiveVarsData} from '../controlpanel/selectors'
+
+function mapStateToProps(state) {
+  var varsData = getActiveVarsData(state)
+  console.log(varsData.local.i);
+  return {
+    varsData
+  };
+}
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+  };
+}
+
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(VariablesInspector);

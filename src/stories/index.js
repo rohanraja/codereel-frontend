@@ -9,7 +9,7 @@ import { Button, Welcome } from '@storybook/react/demo';
 import Helloworld from '../components/Helloworld';
 import {Codemirror} from '../components/codeeditor/Codemirror';
 import {Controlpanel} from '../components/controlpanel/Controlpanel';
-import VariablesInspector from '../components/VariablesInspector/VariablesInspector';
+import { VariablesInspector } from '../components/VariablesInspector/VariablesInspector';
 import ObjectInspector from '../components/VariablesInspector/ObjectInspector';
 import ScopeInspector from '../components/VariablesInspector/ScopeInspector';
 
