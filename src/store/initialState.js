@@ -67,11 +67,11 @@ export default {
         },
     2 : {
           type: "DIFF",
-          data: {
+          data: [{
             "op": "replace", 
             "path": "/local/i", 
             "value": 155
-          },
+          }],
           baseId: 1 
 
         },
