@@ -67,7 +67,7 @@ export default {
         },
     2 : {
           type: "DIFF",
-          data: [{
+          patch: [{
             "op": "replace", 
             "path": "/local/i", 
             "value": 155
