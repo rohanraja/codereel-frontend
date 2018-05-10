@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
 import {configureStore} from '../store';
-import initialState from '../store/initialState'
+import initialState from './initialState'
 
 
 const store = configureStore(initialState);
