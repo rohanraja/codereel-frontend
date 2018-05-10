@@ -20,7 +20,7 @@ export default {
     {
       fileName: "main.thor",
       lineSequence: [28,29,30],
-      frameVarsData: [1,2,2],
+      frameVarsData: [1,2,3],
     },
     {
       fileName: "action_creator.rb",
@@ -56,9 +56,6 @@ export default {
             "local": {
               "i" : 99
             },
-            "attributes": {
-              "userInfo" : "Changed User Info"
-            },
             "global": {
             }
           }
@@ -72,6 +69,16 @@ export default {
             "value": 155
           }],
           baseId: 1 
+
+        },
+    3 : {
+          type: "DIFF",
+          patch: [{
+            "op": "add", 
+            "path": "/local/k", 
+            "value": 3
+          }],
+          baseId: 2 
 
         },
 
