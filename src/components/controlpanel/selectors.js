@@ -88,7 +88,10 @@ function getActiveRun(state)
 export function getActiveCode(state)
 {
   const fname = getActiveFileName(state);
-  return state.codeFiles[fname].code;
+  const codefile = state.codeFiles[fname];
+  if(codefile == undefined)
+    return "";
+  return codefile.code;
 }
 
 export function getActiveLineNo(state)

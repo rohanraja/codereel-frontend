@@ -38,8 +38,8 @@ export function stepCalled() {
   return function (dispatch, getState) {
     const state = getState();
 
-    const codeFilesUrl = "https://jsonplaceholder.typicode.com/posts/1";
-    const fileRunsUrl = "https://jsonplaceholder.typicode.com/posts/1";
+    const codeFilesUrl = "http://localhost:3000/api/codefiles";
+    const fileRunsUrl = "http://localhost:3000/api/fileruns";
 
     axios.get(codeFilesUrl).then(
         (response) => {
