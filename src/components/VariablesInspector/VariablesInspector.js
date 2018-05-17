@@ -25,8 +25,7 @@ export class VariablesInspector extends Component {
 import {getActiveVarsData} from '../controlpanel/selectors'
 
 function mapStateToProps(state) {
-  var varsData = getActiveVarsData(state)
-  console.log(varsData.local.i);
+  var varsData = {}; //getActiveVarsData(state)
   return {
     varsData
   };

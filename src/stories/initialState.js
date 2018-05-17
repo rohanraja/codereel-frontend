@@ -2,8 +2,6 @@ export default {
   activeFrame: {
     fileRunIdx: 0,
     lineSeqIdx: 0,
-    maxFileRuns: 3,
-    maxLineSeqs: [3,5,2]
   },
 
   codeFiles: {
@@ -20,15 +18,17 @@ export default {
     {
       fileName: "main.thor",
       lineSequence: [28,29,30],
-      frameVarsData: [1,2,3],
+      //frameVarsData: [1,2,3],
     },
     {
       fileName: "action_creator.rb",
-      lineSequence: [2,4,5,6,8]
+      lineSequence: [2,4,5,6,8],
+      frameVarsData: [1,2,3,3,2],
     },
     {
       fileName: "main.thor",
-      lineSequence: [30, 31]
+      lineSequence: [30, 31],
+      frameVarsData: [1,2],
     },
   ],
 

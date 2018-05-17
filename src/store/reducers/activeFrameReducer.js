@@ -14,7 +14,8 @@ export function activeFrameReducer(state = initialState.activeFrame, action) {
       return {...state , fileRunIdx: state.fileRunIdx + 1 , lineSeqIdx: 0 };
     
     case types.DECREMENT_ACTIVE_FILERUN:
-      return {...state , fileRunIdx: state.fileRunIdx - 1 , lineSeqIdx: state.maxLineSeqs[state.fileRunIdx - 1] - 1 };
+      return {...state , fileRunIdx: state.fileRunIdx - 1 , lineSeqIdx: action.payload };
+      // return {...state , fileRunIdx: state.fileRunIdx - 1 , lineSeqIdx: state.maxLineSeqs[state.fileRunIdx - 1] - 1 };
 
     default:
       return state

@@ -50,7 +50,8 @@ export function prevCalled() {
       return;
 
     dispatch({
-      type: types.DECREMENT_ACTIVE_FILERUN
+      type: types.DECREMENT_ACTIVE_FILERUN,
+      payload: selectors.getPrevActievLineSeqLength(state) - 1
     });
 
   };

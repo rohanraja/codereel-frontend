@@ -12,11 +12,17 @@ function getActiveLineSeqIdx(state)
   return lineIdx;
 }
 
+export function getPrevActievLineSeqLength(state)
+{
+  const curRunIdx = getActiveFileRunIdx(state);
+  const lineSeq = state.fileRuns[curRunIdx-1].lineSequence;
+  return lineSeq.length;
+}
 function getActievLineSeqLength(state)
 {
   const curRunIdx = getActiveFileRunIdx(state);
-  const lineSeqLen = state.activeFrame.maxLineSeqs[curRunIdx];
-  return lineSeqLen;
+  const lineSeq = state.fileRuns[curRunIdx].lineSequence;
+  return lineSeq.length;
 }
 
 export function lineSeqEndReached(state)
@@ -28,10 +34,11 @@ export function lineSeqEndReached(state)
   return ( lineIdx + 1 >= lineSeqLen );
 }
 
+
 export function fileRunEndReached(state)
 {
   const curRunIdx = getActiveFileRunIdx(state);
-  return ( curRunIdx + 1 >= state.activeFrame.maxFileRuns ) ;
+  return ( curRunIdx + 1 >= state.fileRuns.length ) ;
 }
 
 

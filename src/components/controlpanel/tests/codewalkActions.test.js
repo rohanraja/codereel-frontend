@@ -43,10 +43,24 @@ function testCodeWalkAction(actionFunc, lineSeq, expActn, fileRunIdx)
     {
         activeFrame: {
           fileRunIdx: fileRunIdx,
-          lineSeqIdx: lineSeq,
-          maxFileRuns: 3,
-          maxLineSeqs: [3,5,2]
+          lineSeqIdx: lineSeq
         },
+  fileRuns: [
+    {
+      fileName: "main.thor",
+      lineSequence: [28,29,30],
+    },
+    {
+      fileName: "action_creator.rb",
+      lineSequence: [2,4,5,6,8],
+    },
+    {
+      fileName: "main.thor",
+      lineSequence: [30, 31],
+    },
+  ],
+
+
     }
   );
 
