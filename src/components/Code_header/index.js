@@ -26,11 +26,13 @@ export class Code_header extends Component {
   }
 }
 
-import {getFullActiveFrame} from '../../store/rootReducer'
+
+import {getActiveFileName} from '../controlpanel/selectors'
+
 function mapStateToProps(state) {
-  var activeFrame = getFullActiveFrame(state)
+  var fname = getActiveFileName(state)
   return {
-    title: activeFrame.fileName
+    title: fname
   };
 }
 

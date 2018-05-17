@@ -144,13 +144,14 @@ export class Codemirror extends Component {
 
 
 import {connect} from 'react-redux'
-import {getFullActiveFrame} from '../../store/rootReducer'
+import {getActiveCode, getActiveLineNo} from '../controlpanel/selectors'
 
 const mapStateToProps = state => {
-  var activeFrame = getFullActiveFrame(state)
+  var code = getActiveCode(state);
+  var activeLine = getActiveLineNo(state);
   return {
-    code : activeFrame.code,
-    activeLine: activeFrame.lineNo
+    code: code, 
+    activeLine: activeLine
   }
 }
 

@@ -6,46 +6,10 @@ function getActiveFileRunIdx(state)
   return curRunIdx;
 }
 
-function getActiveLineSeqIdx(state)
-{
-  const lineIdx = state.activeFrame.lineSeqIdx;
-  return lineIdx;
-}
-
-export function getPrevActievLineSeqLength(state)
-{
-  const curRunIdx = getActiveFileRunIdx(state);
-  const lineSeq = state.fileRuns[curRunIdx-1].lineSequence;
-  return lineSeq.length;
-}
-function getActievLineSeqLength(state)
-{
-  const curRunIdx = getActiveFileRunIdx(state);
-  const lineSeq = state.fileRuns[curRunIdx].lineSequence;
-  return lineSeq.length;
-}
-
-export function lineSeqEndReached(state)
-{
-
-  const curRunIdx = getActiveFileRunIdx(state);
-  const lineIdx = getActiveLineSeqIdx(state);
-  const lineSeqLen = getActievLineSeqLength(state);
-  return ( lineIdx + 1 >= lineSeqLen );
-}
-
-
 export function fileRunEndReached(state)
 {
   const curRunIdx = getActiveFileRunIdx(state);
   return ( curRunIdx + 1 >= state.fileRuns.length ) ;
-}
-
-
-export function isAtFileStartPosition(state)
-{
-  const lineIdx = getActiveLineSeqIdx(state);
-  return  (lineIdx -1  >= 0) ; 
 }
 
 export function isAtFirstFileRun(state)
@@ -111,4 +75,30 @@ export function getActiveVarsData(state)
 {
   const dataId = getActiveFrameVarsDataId(state);
   return getVarsDataFrameFromId(state, dataId);
+}
+
+
+function getActiveRun(state)
+{
+  const curRunIdx = getActiveFileRunIdx(state);
+  return state.fileRuns[curRunIdx];
+
+}
+
+export function getActiveCode(state)
+{
+  const fname = getActiveFileName(state);
+  return state.codeFiles[fname].code;
+}
+
+export function getActiveLineNo(state)
+{
+  const curRun = getActiveRun(state);
+  return curRun[1];
+}
+
+export function getActiveFileName(state)
+{
+  const curRun = getActiveRun(state);
+  return curRun[0];
 }
