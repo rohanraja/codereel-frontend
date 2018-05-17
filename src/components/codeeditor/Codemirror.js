@@ -148,7 +148,7 @@ import {getActiveCode, getActiveLineNo} from '../controlpanel/selectors'
 
 const mapStateToProps = state => {
   var code = getActiveCode(state);
-  var activeLine = getActiveLineNo(state);
+  var activeLine = parseInt(getActiveLineNo(state));
   return {
     code: code, 
     activeLine: activeLine

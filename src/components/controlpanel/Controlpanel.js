@@ -70,12 +70,13 @@ export class Controlpanel extends Component {
 
 
 import {connect} from 'react-redux'
-import {nextCalled, prevCalled} from './actions';
+import {nextCalled, prevCalled, stepCalled} from './actions';
 
 const mapDispatchToProps = dispatch => {
   return {
     nextStatementClicked : () => dispatch(nextCalled()),
-    prevStatementClicked : () => dispatch(prevCalled())
+    prevStatementClicked : () => dispatch(prevCalled()),
+    stepIntoClicked : () => dispatch(stepCalled()),
   }
 }
 

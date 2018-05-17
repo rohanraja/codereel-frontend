@@ -16,15 +16,19 @@ export default {
   fileRuns: [
     [
       "main.thor",
-      28,
+      "28",
     ],
     [
       "main.thor",
-      29,
+      "29",
     ],
     [
       "main.thor",
       30,
+    ],
+    [
+      "action_creator.rb",
+      2,
     ],
     [
       "action_creator.rb",
