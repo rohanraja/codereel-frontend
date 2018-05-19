@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import { connect } from 'react-redux';
 import styles from './code_header.css';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import {getActiveFileName} from '../controlpanel/selectors'
 
 // -- import_hook --
 
@@ -27,7 +28,6 @@ export class Code_header extends Component {
 }
 
 
-import {getActiveFileName} from '../controlpanel/selectors'
 
 function mapStateToProps(state) {
   var fname = getActiveFileName(state)

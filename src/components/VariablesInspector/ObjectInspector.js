@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
-var Inspector = require('react-json-inspector');
 import "react-json-inspector/json-inspector.css"
+var Inspector = require('react-json-inspector');
 
 
 class ObjectInspector extends Component {

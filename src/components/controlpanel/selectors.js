@@ -20,10 +20,11 @@ export function isAtFirstFileRun(state)
 
 export function getActiveFrameVarsDataId(state)
 {
-  const curRunIdx = getActiveFileRunIdx(state);
-  const lineIdx = getActiveLineSeqIdx(state);
-
-  return state.fileRuns[curRunIdx].frameVarsData[lineIdx];
+  return getActiveFileRunIdx(state);
+  // const curRunIdx = getActiveFileRunIdx(state);
+  // const lineIdx = getActiveLineSeqIdx(state);
+  //
+  // return state.fileRuns[curRunIdx].frameVarsData[lineIdx];
 }
 
 function getFrameVarsDict(state)
@@ -73,6 +74,7 @@ function applyPatchRecursive(curFrame, frameVarsDict)
 // Used by Variable Inspector component
 export function getActiveVarsData(state)
 {
+  return {};
   const dataId = getActiveFrameVarsDataId(state);
   return getVarsDataFrameFromId(state, dataId);
 }

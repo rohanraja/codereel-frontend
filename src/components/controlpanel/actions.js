@@ -35,6 +35,11 @@ export function prevCalled() {
 }
 
 export function stepCalled() {
+
+  return fetchCodeWalkData();
+}
+
+export function fetchCodeWalkData() {
   return function (dispatch, getState) {
     const state = getState();
 

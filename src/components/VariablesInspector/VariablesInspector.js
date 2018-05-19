@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import ObjectInspector from "./ObjectInspector";
 import { connect } from 'react-redux';
+import {getActiveVarsData} from '../controlpanel/selectors'
 
 export class VariablesInspector extends Component {
 
@@ -22,7 +23,6 @@ export class VariablesInspector extends Component {
 }
 
 
-import {getActiveVarsData} from '../controlpanel/selectors'
 
 function mapStateToProps(state) {
   var varsData = {}; //getActiveVarsData(state)

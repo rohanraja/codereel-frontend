@@ -1,10 +1,12 @@
 import React, { Component} from 'react';
 import CodeMirror from 'react-codemirror';
+import './codestyles.css'
+import {connect} from 'react-redux'
+import {getActiveCode, getActiveLineNo} from '../controlpanel/selectors'
 require('codemirror/lib/codemirror.css');
 require('codemirror/mode/javascript/javascript');
 require('codemirror/mode/ruby/ruby');
 
-import './codestyles.css'
 
 
 
@@ -143,8 +145,6 @@ export class Codemirror extends Component {
 }
 
 
-import {connect} from 'react-redux'
-import {getActiveCode, getActiveLineNo} from '../controlpanel/selectors'
 
 const mapStateToProps = state => {
   var code = getActiveCode(state);
