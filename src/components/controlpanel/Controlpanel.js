@@ -62,6 +62,7 @@ export class Controlpanel extends Component {
         icon={<i class="material-icons">navigate_next</i>}
         style={butStyle}
         onClick={this.onNext.bind(this)}
+        className="control-panel-next"
       />
 
       </Paper>
