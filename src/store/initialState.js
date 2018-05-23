@@ -8,7 +8,7 @@ export default {
   },
 
   fileRuns: [
-    ["None", 0]
+    ["None", 0, "RUNNING", "NONE"]
   ],
 
   frameVarsDataDict: {

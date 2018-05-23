@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import ObjectInspector from "./ObjectInspector";
 import { connect } from 'react-redux';
 import {getActiveVarsData} from '../controlpanel/selectors'
+import {getActiveCallStack} from '../controlpanel/callStackSelectors'
 
 export class VariablesInspector extends Component {
 
@@ -17,6 +18,7 @@ export class VariablesInspector extends Component {
         <ObjectInspector 
           objectData = {data}
         />
+      {this.props.callStack}
       </div>
     );
   }
@@ -26,8 +28,10 @@ export class VariablesInspector extends Component {
 
 function mapStateToProps(state) {
   var varsData = {}; //getActiveVarsData(state)
+  var callStack = getActiveCallStack(state);
   return {
-    varsData
+    varsData,
+    callStack
   };
 }
 
