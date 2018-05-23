@@ -1,6 +1,6 @@
 import {JsonPatcher} from '../../services/jsonPatcher'
 
-function getActiveFileRunIdx(state)
+export function getActiveFileRunIdx(state)
 {
   const curRunIdx = state.activeFrame.fileRunIdx;
   return curRunIdx;
@@ -80,7 +80,12 @@ export function getActiveVarsData(state)
 }
 
 
-function getActiveRun(state)
+export function getRunWithID(state, idx)
+{
+  return state.fileRuns[idx];
+}
+
+export function getActiveRun(state)
 {
   const curRunIdx = getActiveFileRunIdx(state);
   return state.fileRuns[curRunIdx];
