@@ -23,7 +23,7 @@ export function getCallStackForIdx(state, idx)
 {
   var stack = [];
 
-    var lastExited = 0;
+    var lastExited = -1;
   for(var i=0; i<=idx; i++)
   {
     const mrState = getMethodRunningStateForIdx(state, i);
@@ -32,18 +32,21 @@ export function getCallStackForIdx(state, idx)
       stack.push(mName);
     else{
       var j = i - 1;
+      var maxExit = 0;
       while(j >=0 && j > lastExited)
       {
         const oldSt = getMethodRunningStateForIdx(state, j);
         if(oldSt.indexOf("EXITING") > 0)
         {
          stack.pop();
+          if(j > maxExit)
+            maxExit = j;
         }
         else
           break;
         j = j - 1;
       }
-      lastExited = j+1;
+     lastExited = maxExit;
     }
   }
 
