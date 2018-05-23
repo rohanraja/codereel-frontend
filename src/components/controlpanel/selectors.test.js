@@ -1,6 +1,6 @@
 import * as selectors from './selectors';
 
-describe('VarDataFrame Selectors', () => {
+describe('VarData Frame Selectors', () => {
   it('gets active dataframe ID given current lineSeqId and fileRunIdx', () => {
 
     const state = {
