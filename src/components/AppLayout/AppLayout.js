@@ -3,8 +3,6 @@ import {Router, Route, Link } from 'react-router-dom'
 
 import CodeWalkLayout from "../CodeWalkLayout/CodeWalkLayout"
 import {OnCodeWalkEnter} from "../../routes/callbacks"
-import {store} from '../../store';
-import {fetchCodeWalkData} from '../controlpanel/actions';
 
 import './styles.css';
 
@@ -14,14 +12,18 @@ class AppLayout extends Component {
     super(props);
   }
 
-  componentDidMount(){
-     store.dispatch(fetchCodeWalkData());
-  }
-
   render() {
     return (
-      <div>
-      <Route exact path="/codewalk" component={CodeWalkLayout} />
+    <div className="wrapper">
+        <div className="box header">Header</div>
+        <div className="box sidebar">Sidebar</div>
+        <div className="box sidebar2">Sidebar 2</div>
+
+        <div className="box content">
+          <CodeWalkLayout/>
+        </div>
+        <div className="box footer">Footer</div>
+
       </div>
     );
   }
