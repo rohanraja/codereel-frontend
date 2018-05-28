@@ -6,6 +6,8 @@ import {OnCodeWalkEnter} from "../../routes/callbacks"
 import {store} from '../../store';
 import {fetchCodeWalkData} from '../controlpanel/actions';
 
+import './styles.css';
+
 class AppLayout extends Component {
 
   constructor(props) {
@@ -19,7 +21,6 @@ class AppLayout extends Component {
   render() {
     return (
       <div>
-      CodeVines Main Layout
       <Route exact path="/codewalk" component={CodeWalkLayout} />
       </div>
     );
