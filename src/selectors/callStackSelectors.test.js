@@ -1,4 +1,4 @@
-import * as callStackSelectors from './callStackSelectors';
+import * as callStackSelectors from 'selectors/callStackSelectors';
 
 //ToDo: Write more test cases
 

@@ -1,5 +1,3 @@
-import {JsonPatcher} from 'services/jsonPatcher'
-
 export function getActiveFileRunIdx(state)
 {
   const curRunIdx = state.activeFrame.fileRunIdx;
