@@ -1,4 +1,4 @@
-import * as selectors from './codeWalkSelectors';
+import * as selectors from './varStateSelectors';
 
 describe('VarData Frame Selectors', () => {
 
