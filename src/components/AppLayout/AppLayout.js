@@ -6,6 +6,8 @@ import {OnCodeWalkEnter} from "../../routes/callbacks"
 
 import './styles.css';
 
+import Threadselector from '../Threadselector' ;
+
 class AppLayout extends Component {
 
   constructor(props) {
@@ -13,10 +15,15 @@ class AppLayout extends Component {
   }
 
   render() {
+
     return (
     <div className="wrapper">
         <div className="box header">Header</div>
-        <div className="box sidebar">Sidebar</div>
+        
+      <div className="box sidebar">
+        <Threadselector
+        />
+      </div>
 
         <div className="box content">
           <CodeWalkLayout/>

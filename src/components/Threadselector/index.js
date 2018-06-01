@@ -43,7 +43,14 @@ export class Threadselector extends Component {
 }
 
 function mapStateToProps(state) {
+  const threads = [
+    ["Thread_1", 2],
+    ["Thread_2", 4],
+    ["Thread_3", 6],
+  ]
   return {
+    threadInfos: threads,
+    activeThreadRunId: 6
   };
 }
 
