@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import CodeMirror from 'react-codemirror';
 import './codestyles.css'
 import {connect} from 'react-redux'
-import {getActiveCode, getActiveLineNo} from '../controlpanel/selectors'
+import {getActiveCode, getActiveLineNo} from 'selectors/codeWalkSelectors'
 require('codemirror/lib/codemirror.css');
 require('codemirror/mode/javascript/javascript');
 require('codemirror/mode/ruby/ruby');

@@ -1,4 +1,4 @@
-import {JsonPatcher} from '../../services/jsonPatcher'
+import {JsonPatcher} from 'services/jsonPatcher'
 
 export function getActiveFileRunIdx(state)
 {

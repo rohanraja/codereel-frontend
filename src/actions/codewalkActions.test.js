@@ -1,5 +1,5 @@
-import * as actions from '../actions'
-import * as types from '../../../store/types'
+import * as actions from './codeWalkActions'
+import * as types from 'store/types'
 
 
 

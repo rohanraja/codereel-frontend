@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {fullWhite} from 'material-ui/styles/colors';
 import FontIcon from 'material-ui/FontIcon';
 import {connect} from 'react-redux'
-import {nextCalled, prevCalled, stepCalled} from './actions';
+import {nextCalled, prevCalled, stepCalled} from 'actions/codeWalkActions';
 
 export class Controlpanel extends Component {
 

@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import { connect } from 'react-redux';
 import styles from './code_header.css';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
-import {getActiveFileName} from '../controlpanel/selectors'
+import {getActiveFileName} from 'selectors/codeWalkSelectors'
 
 // -- import_hook --
 

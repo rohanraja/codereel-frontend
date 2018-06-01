@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import ObjectInspector from "./ObjectInspector";
 import { connect } from 'react-redux';
-import {getActiveVarsData} from '../controlpanel/selectors'
+import {getActiveVarsData} from 'selectors/codeWalkSelectors'
 import {getActiveCallStack} from '../controlpanel/callStackSelectors'
 
 export class VariablesInspector extends Component {

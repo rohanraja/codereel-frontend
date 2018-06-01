@@ -1,5 +1,5 @@
-import * as types from '../../store/types'
-import * as selectors from './selectors';
+import * as types from 'store/types'
+import * as selectors from 'selectors/codeWalkSelectors';
 let axios = require('axios');
 
 export function nextCalled() {
