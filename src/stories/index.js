@@ -6,14 +6,12 @@ import { linkTo } from '@storybook/addon-links';
 
 import { Button, Welcome } from '@storybook/react/demo';
 
-import Helloworld from '../components/Helloworld';
 import {Codemirror} from '../components/codeeditor/Codemirror';
 import {Controlpanel} from '../components/controlpanel/Controlpanel';
 import { VariablesInspector } from '../components/VariablesInspector/VariablesInspector';
 import ObjectInspector from '../components/VariablesInspector/ObjectInspector';
 import ScopeInspector from '../components/VariablesInspector/ScopeInspector';
 
-import Materialsearch from '../components/Materialsearch';
 
 import {muiTheme} from 'storybook-addon-material-ui';
 import { withKnobs, text, boolean, number, array } from '@storybook/addon-knobs/react';
@@ -47,13 +45,6 @@ const Bordered = (storyFn) => (
   </div>
 );
 
-
-
-storiesOf('HelloWorld', module)
-  .addDecorator(muiTheme())
-  .addDecorator(withKnobs)
-  .add('material_ui_test', () => <Helloworld contnt={text("Button Text", "TRY ME")} />)
-  .add('search', () => <Materialsearch />);
 
 
 

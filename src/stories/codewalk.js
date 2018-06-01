@@ -5,7 +5,6 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 
-import Helloworld from '../components/Helloworld';
 import ConnectedCodemirror from '../components/codeeditor/Codemirror';
 import ConnectedControlpanel from '../components/controlpanel/Controlpanel';
 import ConnectedCodeHeader from '../components/Code_header';
