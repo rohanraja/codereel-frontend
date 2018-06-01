@@ -1,10 +1,10 @@
 //Todo - Move all test files to a new tests folder
-export const state = (activeTh = "tid_0", thPos = 0) => {
+export const state = (activeTh = "tid_0", thPos = 0, time=0) => {
   return {
   activeFrame: {
     threadId: activeTh,
     threadPosition: thPos,
-    timeStamp: 0,
+    timeStamp: time,
   },
 
   codeStory : {
@@ -15,6 +15,7 @@ export const state = (activeTh = "tid_0", thPos = 0) => {
     "tid_1": [
       ["CSFile1", 50, "RUNNING", "NONE", 15],
       ["CSFile2", 60, "RUNNING", "NONE", 25],
+      ["CSFile3", 65, "RUNNING", "NONE", 30],
     ]
   },
 };
