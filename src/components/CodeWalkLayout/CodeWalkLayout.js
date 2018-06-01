@@ -5,7 +5,7 @@ import ConnectedCodeHeader from '../Code_header';
 import VariablesInspector from '../VariablesInspector/VariablesInspector';
 
 import {store} from '../../store';
-import {fetchCodeWalkData} from 'actions/codeWalkActions';
+import {fetchCodeWalkData} from 'actions/dataLoadActions';
 
 import './styles.css';
 
