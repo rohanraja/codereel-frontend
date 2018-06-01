@@ -17,7 +17,6 @@ class AppLayout extends Component {
     <div className="wrapper">
         <div className="box header">Header</div>
         <div className="box sidebar">Sidebar</div>
-        <div className="box sidebar2">Sidebar 2</div>
 
         <div className="box content">
           <CodeWalkLayout/>

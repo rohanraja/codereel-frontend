@@ -21,6 +21,7 @@
     .wrapper {
         background-color: #fff;
         color: #444;
+    height: 100vh;
     }
 
   .wrapper {
@@ -49,10 +50,11 @@
     @media only screen and (min-width: 600px)   {
         .wrapper {
       grid-gap: 1px;
-            grid-template-columns: 120px auto 120px;
+            grid-template-columns: 200px auto 120px;
+            grid-template-rows: 50px auto 50px;
             grid-template-areas:
       "header  header  header"
-            "sidebar content sidebar2"
+            "sidebar content content"
             "footer  footer  footer";
             /* max-width: 600px; */
         }

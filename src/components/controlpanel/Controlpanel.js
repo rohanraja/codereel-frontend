@@ -31,7 +31,6 @@ export class Controlpanel extends Component {
 
   render() {
     const style = {
-      margin: 20,
       textAlign: 'center',
       display: 'inline-block',
     };
