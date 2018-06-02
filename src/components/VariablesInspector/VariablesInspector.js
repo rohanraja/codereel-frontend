@@ -13,12 +13,18 @@ export class VariablesInspector extends Component {
   render() {
     var data = this.props.varsData;
 
+    // Todo - Extract callstack component
+    const clstk = this.props.callStack.map( (mthname) => (
+
+      <li>{mthname}</li>
+    ));
+
     return (
       <div>
         <ObjectInspector 
           objectData = {data}
         />
-      {this.props.callStack}
+      {clstk}
       </div>
     );
   }
