@@ -8,6 +8,7 @@ export function fetchCodeWalkData() {
 
     loadDataForStateKey(dispatch, "codefiles", types.CODEFILES_RECIEVED);
     loadDataForStateKey(dispatch, "fileruns", types.FILERUNS_RECIEVED);
+    loadDataForStateKey(dispatch, "codeStory", types.CODESTORY_RECIEVED);
 
   };
 }
