@@ -5,6 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {onThreadChange} from 'actions/codeWalkActions';
+import {listAllThreads, getActiveThreadId} from 'selectors/threadRunSelectors';
 // -- import_hook --
 
 export class Threadselector extends Component {
@@ -44,14 +45,11 @@ export class Threadselector extends Component {
 }
 
 function mapStateToProps(state) {
-  const threads = [
-    ["Thread_1", 2],
-    ["Thread_2", 4],
-    ["Thread_3", 6],
-  ]
+  const threads = listAllThreads(state);
+  const activeTh = getActiveThreadId(state);
   return {
     threadInfos: threads,
-    activeThreadRunId: 6
+    activeThreadRunId: activeTh
   };
 }
 

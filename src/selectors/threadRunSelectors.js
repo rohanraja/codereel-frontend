@@ -70,6 +70,17 @@ export function isAtLastCodeFrame(state)
 
   return  ( curRunIdx == threadRun.length - 1 );
 }
+
+export function listAllThreads(state)
+{
+  var threads = []
+  Object.keys(state.codeStory).map((tid) => {
+    threads.push([tid, tid]);
+  })
+
+  return threads;
+}
+
 // -- Private Methods
 
 function timeStampForFrame(codeFrame)
@@ -82,7 +93,7 @@ function activeFrame(state)
   return state.activeFrame;
 }
 
-function getActiveThreadId(state)
+export function getActiveThreadId(state)
 {
   const frame = activeFrame(state);
   return frame.threadId;

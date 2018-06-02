@@ -1,4 +1,7 @@
-export default {
+import {state} from 'tests/multiThreadedRun/multiThreadedDummyState';
+export default Object.assign(state, {})
+
+const oldJson = {
   activeFrame: {
     fileRunIdx: 0,
     threadId: "tid_0",
