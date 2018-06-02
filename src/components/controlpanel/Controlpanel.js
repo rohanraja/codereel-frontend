@@ -46,19 +46,19 @@ export class Controlpanel extends Component {
       <Paper style={style} zDepth={1} >
       <RaisedButton
         primary={true}
-        icon={<i class="material-icons">navigate_before</i>}
+        icon={<i className="material-icons">navigate_before</i>}
         style={butStyle}
         onClick={this.onPrev.bind(this)}
       />
       <RaisedButton
         primary={true}
-        icon={<i class="material-icons">redo</i>}
+        icon={<i className="material-icons">redo</i>}
         style={butStyle}
         onClick={this.onStep.bind(this)}
       />
       <RaisedButton
         primary={true}
-        icon={<i class="material-icons">navigate_next</i>}
+        icon={<i className="material-icons">navigate_next</i>}
         style={butStyle}
         onClick={this.onNext.bind(this)}
         className="control-panel-next"

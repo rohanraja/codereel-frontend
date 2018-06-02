@@ -1,6 +1,4 @@
 import {state} from 'tests/multiThreadedRun/multiThreadedDummyState';
-export default Object.assign(state, {})
-
 const oldJson = {
   activeFrame: {
     fileRunIdx: 0,
@@ -11,7 +9,7 @@ const oldJson = {
 
 
   codeFiles: {
-    "None" : {code: "#None loaded"}
+    "File1" : {code: "#None loaded"},
   },
   
   codeStory : {
@@ -29,3 +27,5 @@ const oldJson = {
   frameVarsDataDict: {
   }
 }
+// export default Object.assign(oldJson, {})
+export default Object.assign(oldJson, state())

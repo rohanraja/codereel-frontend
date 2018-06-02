@@ -1,9 +1,9 @@
 import {JsonPatcher} from 'services/jsonPatcher'
-import {getActiveFileRunIdx} from './codeWalkSelectors';
+import {getActiveCodeFramePos} from './threadRunSelectors';
 
 export function getActiveFrameVarsDataId(state)
 {
-  return getActiveFileRunIdx(state);
+  return getActiveCodeFramePos(state);
 }
 
 function getFrameVarsDict(state)

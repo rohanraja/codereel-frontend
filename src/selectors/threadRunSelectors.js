@@ -75,7 +75,7 @@ export function listAllThreads(state)
 {
   var threads = []
   Object.keys(state.codeStory).map((tid) => {
-    threads.push([tid, tid]);
+    threads.push(["Thread - " + tid, tid]);
   })
 
   return threads;
