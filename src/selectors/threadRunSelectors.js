@@ -101,8 +101,36 @@ function activeFrame(state)
 export function getActiveThreadId(state)
 {
   const frame = activeFrame(state);
-  return frame.threadId;
+  var thid = frame.threadId;
 
+  if (state.codeStory[thid] == undefined || state.codeStory[thid] == null)
+    thid = getThreadIdWithEarliestTimeStamp(state)
+
+  return thid;
+
+}
+
+function getThreadIdWithEarliestTimeStamp(state)
+{
+  var thid = "-1";
+
+  // Todo - find a way to get the maximum int val
+  var minTime = 9999999
+
+  Object.keys(state.codeStory).map((k) => {
+    const thrun = getThreadRunWithTid(state, k)
+    if(thrun.length > 0)
+    {
+      const time = timeStampForFrame(thrun[0])
+      if(time < minTime)
+      {
+        minTime = time;
+        thid = k;
+      }
+    }
+  })
+
+  return thid;
 }
 
 function getThreadRunWithTid(state, tid)
