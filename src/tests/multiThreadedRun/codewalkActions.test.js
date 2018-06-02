@@ -1,6 +1,6 @@
 import * as actions from 'actions/codeWalkActions'
 import * as types from 'store/types'
-
+import {state} from './multiThreadedDummyState';
 
 
 describe('Debug_next_called', () => {
@@ -31,29 +31,11 @@ describe('Debug_Prev_called', () => {
 
 function testCodeWalkAction(actionFunc, expActn, fileRunIdx)
 {
-   const getState = () => (
+   const getState = () =>
     {
-        activeFrame: {
-          fileRunIdx: fileRunIdx
-        },
-  fileRuns: [
-    {
-      fileName: "main.thor",
-      lineSequence: [28,29,30],
-    },
-    {
-      fileName: "action_creator.rb",
-      lineSequence: [2,4,5,6,8],
-    },
-    {
-      fileName: "main.thor",
-      lineSequence: [30, 31],
-    },
-  ],
-
-
+      return state("tid_1", fileRunIdx, 119911);
     }
-  );
+  
 
     const dispatch = jest.fn();
 
@@ -61,8 +43,10 @@ function testCodeWalkAction(actionFunc, expActn, fileRunIdx)
 
   if(expActn != "")
   {
-    expect(dispatch.mock.calls.length).toBe(1);
+    expect(dispatch.mock.calls.length).toBe(2);
     expect(dispatch.mock.calls[0][0].type).toBe(expActn);
+    expect(dispatch.mock.calls[1][0].type).toBe(types.UPDATE_TIME_STAMP);
+    expect(dispatch.mock.calls[1][0].payload).toBe(119911);
   }
   else
   {

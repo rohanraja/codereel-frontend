@@ -10,6 +10,9 @@ export function activeFrameReducer(state = initialState.activeFrame, action) {
     case types.DECREMENT_ACTIVE_FILERUN:
       return {...state , fileRunIdx: state.fileRunIdx - 1 };
 
+    case types.UPDATE_TIME_STAMP:
+      return {...state , timeStamp: action.payload};
+
     default:
       return state
   }

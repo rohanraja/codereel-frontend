@@ -50,6 +50,26 @@ export function getTimeStampForCodeFrameWithId(state, threadId, position)
   return timeStampForFrame(frame);
 }
 
+export function getActiveFrameTimeStamp(state)
+{
+  const frame = activeFrame(state);
+  return frame.timeStamp;
+}
+
+export function isAtFirstCodeFrame(state)
+{
+  const curRunIdx = getActiveCodeFramePos(state);
+  return  ( curRunIdx == 0 );
+}
+
+export function isAtLastCodeFrame(state)
+{
+  const curRunIdx = getActiveCodeFramePos(state);
+  const threadId = getActiveThreadId(state);
+  const threadRun = getThreadRunWithTid(state, threadId);
+
+  return  ( curRunIdx == threadRun.length - 1 );
+}
 // -- Private Methods
 
 function timeStampForFrame(codeFrame)
