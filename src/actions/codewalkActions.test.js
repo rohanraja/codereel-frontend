@@ -1,4 +1,4 @@
-import * as actions from './codeWalkActions'
+import * as actions from 'actions/codeWalkActions'
 import * as types from 'store/types'
 
 
@@ -6,12 +6,12 @@ import * as types from 'store/types'
 describe('Debug_next_called', () => {
   it('should increment fileRun when no more lines available', () => {
 
-    testCodeWalkAction(actions.nextCalled, 2, types.INCREMENT_ACTIVE_FILERUN, 0);
+    testCodeWalkAction(actions.nextCalled, types.INCREMENT_ACTIVE_FILERUN, 0);
   })
   
   it('should do nothing when debug end reached', () => {
 
-    testCodeWalkAction(actions.nextCalled, 1, "", 2);
+    testCodeWalkAction(actions.nextCalled, "", 2);
   })
 })
 
@@ -19,23 +19,22 @@ describe('Debug_next_called', () => {
 describe('Debug_Prev_called', () => {
   it('should decrement fileRun when present at start line pos', () => {
 
-    testCodeWalkAction(actions.prevCalled, 0, types.DECREMENT_ACTIVE_FILERUN, 1);
+    testCodeWalkAction(actions.prevCalled, types.DECREMENT_ACTIVE_FILERUN, 1);
   })
 
   it('should do nothing when debug beginning reached', () => {
 
-    testCodeWalkAction(actions.prevCalled, 0, "", 0);
+    testCodeWalkAction(actions.prevCalled, "", 0);
   })
 })
 
 
-function testCodeWalkAction(actionFunc, lineSeq, expActn, fileRunIdx)
+function testCodeWalkAction(actionFunc, expActn, fileRunIdx)
 {
    const getState = () => (
     {
         activeFrame: {
-          fileRunIdx: fileRunIdx,
-          lineSeqIdx: lineSeq
+          fileRunIdx: fileRunIdx
         },
   fileRuns: [
     {
