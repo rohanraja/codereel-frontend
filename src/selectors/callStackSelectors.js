@@ -1,21 +1,21 @@
-import * as selectors from 'selectors/codeWalkSelectors';
+import * as selectors from 'selectors/threadRunSelectors';
 
 export function getActiveCallStack(state)
 {
-  const curRunIdx = selectors.getActiveFileRunIdx(state);
+  const curRunIdx = selectors.getActiveCodeFramePos(state);
   return getCallStackForIdx(state, curRunIdx);
 }
 
 
 function getMethodNameForIdx(state, idx)
 {
-  const curRun = selectors.getRunWithID(state, idx);
+  const curRun = selectors.getCodeFrameWithPos(state, idx);
   return curRun[3];
 }
 
 function getMethodRunningStateForIdx(state, idx)
 {
-  const curRun = selectors.getRunWithID(state, idx);
+  const curRun = selectors.getCodeFrameWithPos(state, idx);
   return curRun[2];
 }
 
