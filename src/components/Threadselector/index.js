@@ -4,6 +4,7 @@ import './threadselector.css';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import {onThreadChange} from 'actions/codeWalkActions';
 // -- import_hook --
 
 export class Threadselector extends Component {
@@ -57,6 +58,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => {
   return {
+    threadButtonClicked : (tid) => dispatch(onThreadChange(tid)),
   };
 }
 
