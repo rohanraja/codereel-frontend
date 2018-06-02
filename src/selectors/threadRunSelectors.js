@@ -49,10 +49,15 @@ export function getTimeStampForCodeFrameWithId(state, threadId, position)
 
   return timeStampForFrame(frame);
 }
+export function getActiveCodeFrameTimeStamp(state)
+{
+  const frame = getActiveCodeFrame(state)
+  return timeStampForFrame(frame);
+}
 
 export function getActiveFrameTimeStamp(state)
 {
-  const frame = activeFrame(state);
+  const frame = activeFrame(state)
   return frame.timeStamp;
 }
 

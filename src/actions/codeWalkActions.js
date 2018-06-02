@@ -1,7 +1,7 @@
 import * as types from 'store/types'
 import * as selectors from 'selectors/threadRunSelectors';
 import {fetchCodeWalkData} from 'actions/dataLoadActions';
-import {getActiveFrameTimeStamp} from 'selectors/threadRunSelectors';
+import {getActiveFrameTimeStamp, getActiveCodeFrameTimeStamp} from 'selectors/threadRunSelectors';
 let axios = require('axios');
 
 export function nextCalled() {
@@ -25,7 +25,7 @@ export function updateTimeStamp(){
 
   return function (dispatch, getState) {
     const state = getState();
-    const timeStamp = getActiveFrameTimeStamp(state);
+    const timeStamp = getActiveCodeFrameTimeStamp(state);
 
     dispatch({
       type: types.UPDATE_TIME_STAMP,
