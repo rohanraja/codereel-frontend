@@ -10,4 +10,6 @@ export const FILERUNS_RECIEVED = 'FILERUNS_RECIEVED'
 
 export const UPDATE_TIME_STAMP = 'UPDATE_TIME_STAMP'
 
+export const UPDATE_ACTIVE_THREAD = 'UPDATE_ACTIVE_THREAD'
+
 // -- newActionType_hook --

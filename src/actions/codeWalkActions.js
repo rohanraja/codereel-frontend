@@ -58,4 +58,23 @@ export function stepCalled() {
 
   return fetchCodeWalkData();
 }
+
+export function onThreadChange(newThreadId){
+
+  return function (dispatch, getState) {
+    const state = getState();
+    const timeStamp = getActiveFrameTimeStamp(state);
+    const threadPos = selectors.evalNeartestPosForThread(state, newThreadId, timeStamp)
+
+    dispatch({
+      type: types.UPDATE_ACTIVE_THREAD,
+      payload: {
+        newThreadId,
+        threadPos
+      }
+    });
+  };
+
+}
+
 // -- new_actionCreator_hook --
