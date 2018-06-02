@@ -42,6 +42,14 @@ export function evalNeartestPosForThread(state, threadId, timeStamp)
   return outVal;
 }
 
+export function getTimeStampForCodeFrameWithId(state, threadId, position)
+{
+  const threadRun = getThreadRunWithTid(state, threadId);
+  var frame = threadRun[position];
+
+  return timeStampForFrame(frame);
+}
+
 // -- Private Methods
 
 function timeStampForFrame(codeFrame)

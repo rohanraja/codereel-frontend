@@ -45,6 +45,16 @@ describe('Thread Run Selectors', () => {
     var threadPos = selector.evalNeartestPosForThread(st, "tid_1", 999);
     expect(threadPos).toBe(st.codeStory["tid_1"].length - 1);
   })
+
+  it('evaluates the timeStamp of a codeFrame given threadId and position', () => {
+    var st = state();
+    var timeStamp = selector.getTimeStampForCodeFrameWithId(st, "tid_1", 1);
+    expect(timeStamp).toBe(25);
+
+    timeStamp = selector.getTimeStampForCodeFrameWithId(st, "tid_0", 0);
+    expect(timeStamp).toBe(10);
+
+  })
   
   it('evaluates the first thread that should be run at 0 time position', () => {
 
