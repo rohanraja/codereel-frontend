@@ -6,6 +6,7 @@ import {getActiveCode, getActiveLineNo} from 'selectors/codeWalkSelectors'
 require('codemirror/lib/codemirror.css');
 require('codemirror/mode/javascript/javascript');
 require('codemirror/mode/ruby/ruby');
+require('codemirror/mode/clike/clike');
 
 
 
@@ -128,7 +129,7 @@ export class Codemirror extends Component {
     var code = this.props.code;
     var options = {
 			lineNumbers: true,
-      mode: 'ruby',
+      mode: 'text/x-csharp',
       firstLineNumber: 0
 		};
 
