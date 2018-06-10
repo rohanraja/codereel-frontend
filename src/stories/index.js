@@ -10,7 +10,6 @@ import {Codemirror} from '../components/codeeditor/Codemirror';
 import {Controlpanel} from '../components/controlpanel/Controlpanel';
 import { VariablesInspector } from '../components/VariablesInspector/VariablesInspector';
 import ObjectInspector from '../components/VariablesInspector/ObjectInspector';
-import ScopeInspector from '../components/VariablesInspector/ScopeInspector';
 
 
 import {muiTheme} from 'storybook-addon-material-ui';
@@ -117,7 +116,4 @@ storiesOf('Variables Inspector', module)
                           />)
   .add('Object Inspector', () => <ObjectInspector 
                               objectData = {testObjectData}
-                          />)
-  .add('Scope Inspector', () => <ScopeInspector 
-                              scopeVars = {testScopeVars}
                           />)
