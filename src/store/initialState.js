@@ -25,7 +25,10 @@ const oldJson = {
   ],
 
   frameVarsDataDict: {
-  }
+  },
+
+  scopeVars: {
+  },
 }
 // export default Object.assign(oldJson, {})
 export default Object.assign(oldJson, state())
