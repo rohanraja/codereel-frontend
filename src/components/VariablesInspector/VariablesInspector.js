@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import ObjectInspector from "./ObjectInspector";
 import { connect } from 'react-redux';
-import {getActiveVarsData} from 'selectors/simpleVarStateSelector'
+import {getCurrentScopeVars} from 'selectors/scopeVarsSelector'
 import {getActiveCallStack} from 'selectors/callStackSelectors'
 
 export class VariablesInspector extends Component {
@@ -33,7 +33,7 @@ export class VariablesInspector extends Component {
 
 
 function mapStateToProps(state) {
-  var varsData = getActiveVarsData(state)
+  var varsData = getCurrentScopeVars(state)
   var callStack = getActiveCallStack(state);
   return {
     varsData,

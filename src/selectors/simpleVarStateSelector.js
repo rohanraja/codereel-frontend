@@ -1,6 +1,6 @@
 import {getActiveFrameTimeStamp} from './threadRunSelectors';
 
-export function getActiveVarsData(state, id)
+export function getActiveVarsData(state)
 {
 
   const timeStamp = getActiveFrameTimeStamp(state);

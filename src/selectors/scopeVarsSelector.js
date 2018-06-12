@@ -1,4 +1,14 @@
 import {getVarsDataAtTime} from './simpleVarStateSelector';
+import {getActiveFrameTimeStamp, getActiveCodeFrame, getMrIdForCodeFrame} from './threadRunSelectors';
+
+export function getCurrentScopeVars(state)
+{
+  const timeStamp = getActiveFrameTimeStamp(state);
+  const mrid = getCurrentMRID(state)
+
+  return getScopeStateOfMridAndTime(state, mrid, timeStamp)
+}
+
 
 export function getScopeStateOfMridAndTime(state, mrid, time)
 {
@@ -8,6 +18,9 @@ export function getScopeStateOfMridAndTime(state, mrid, time)
   if(scope == undefined || scope == null || Object.keys(scope).length == 0)
     return {};
 
+  if(allVars == undefined || allVars == null || Object.keys(allVars).length == 0)
+    return {};
+
   var outP = {};
 
   outP["this"] = getClassInstVal(state, scope, allVars)
@@ -15,6 +28,13 @@ export function getScopeStateOfMridAndTime(state, mrid, time)
 
   return outP;
 }
+
+function getCurrentMRID(state)
+{
+  const frame = getActiveCodeFrame(state);
+  return getMrIdForCodeFrame(frame);
+}
+
 
 function getLocalVals(state, scope, allVars)
 {

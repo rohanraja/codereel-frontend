@@ -86,6 +86,12 @@ export function listAllThreads(state)
   return threads;
 }
 
+export function getMrIdForCodeFrame(frame)
+{
+
+  return frame[5];
+}
+
 // -- Private Methods
 
 function timeStampForFrame(codeFrame)
